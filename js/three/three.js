@@ -30446,7 +30446,7 @@
 
 				}, 0 );
 
-				image.crossOrigin=true;
+				image.crossOrigin="#";
 				return cached;
 
 			}
