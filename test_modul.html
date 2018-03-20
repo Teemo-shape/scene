@@ -51,7 +51,7 @@
         mtlLoader.setPath('obj/'); 
         
         mtlLoader.load('building 11.mtl', function(material){
-             var objLoader = new THREE.OBJLoader();
+             var objLoader = new THREE.OBJLoader2();
         	 objLoader.setMaterials(material);
         	 objLoader.setPath('obj/');
              objLoader.load('building 11.obj', function (object) {
