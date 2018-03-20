@@ -52,10 +52,10 @@
         
         mtlLoader.load('building 11.mtl', function(material){
              var objLoader = new THREE.OBJLoader();
-        	 objLoader.setMaterials(material);
+		 objLoader.setMaterials(material);
         	 objLoader.setPath('obj/');
-             objLoader.load('building 11.obj', function (object) {
-        		object.scale.set( 2.5, 2.5 , 2.5 );
+             	 objLoader.load('building 11.obj', function (object) {
+        	    object.scale.set( 2.5, 2.5 , 2.5 );
 	            object.rotation.x=Math.PI;
 	            object.rotation.z=Math.PI;
 	            object.rotation.y=Math.PI;
@@ -79,11 +79,6 @@
             stats.domElement.style.left = '5px' ;
             stats.domElement.style.top = '5px' ;
             // document.body.appendChild(stats.domElement);
-
-
-            // 网格助手
-            // var gridHelper = new THREE.GridHelper(300, 30);
-            // scene.add( gridHelper ) ;
 
             // 控制器
             var controls = new THREE.OrbitControls(camera, renderer.domElement);
