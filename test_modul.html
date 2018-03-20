@@ -46,51 +46,29 @@
         var ambientLight = new THREE.AmbientLight(0xCCCCCC);
         scene.add(ambientLight);
 
-
-//         加模型
-//         var loader1=new THREE.OBJLoader();
-//         loader1.load("obj/building 11.obj",function(ssobject){
-//             ssobject.scale.set(2.5 , 2.5 , 2.5);
-//             ssobject.rotation.x=Math.PI;
-//             ssobject.rotation.z=Math.PI;
-//             ssobject.rotation.y=Math.PI;
-
-//             ssobject.position.z=Math.PI;
-//             ssobject.position.x=0;
-//             ssobject.position.y=-0;
-//             scene.add( ssobject );
-//         })
-
-
         var mtlLoader = new THREE.MTLLoader();
         
-        mtlLoader.setPath('/obj/'); 
+        mtlLoader.setPath('obj/'); 
         
-        mtlLoader.load('building 11.mtl', mtl);
+        mtlLoader.load('building 11.mtl', function(material){
+             var objLoader = new THREE.OBJLoader();
+        	 objLoader.setMaterials(material);
+        	 objLoader.setPath('obj/');
+             objLoader.load('building 11.obj', function (object) {
+        		object.scale.set( 2.5, 2.5 , 2.5 );
+	            object.rotation.x=Math.PI;
+	            object.rotation.z=Math.PI;
+	            object.rotation.y=Math.PI;
+	
+	            object.position.z=Math.PI;
+	            object.position.x=0;
+	            object.position.y=-0;
+	
+	            scene.add( object );
+        	})
+            
+        });
 
-
-        function mtl( material ) {
-            var objLoader = new THREE.OBJLoader() ;
-            var objLoader = new THREE.OBJLoader() ;
-
-            objLoader.setMaterials( material );
-            objLoader.setPath('/obj/');
-            objLoader.load('building 11.obj',obj);
-        }
-
-        function obj( object3D ) {
-            object3D.scale.set( 2.5, 2.5 , 2.5 );
-            object3D.rotation.x=Math.PI;
-            object3D.rotation.z=Math.PI;
-            object3D.rotation.y=Math.PI;
-
-            object3D.position.z=Math.PI;
-            object3D.position.x=0;
-            object3D.position.y=-0;
-
-            scene.add( object3D );
-
-        }
         // 创建辅助系统
         function createAuxSystem(){
 
